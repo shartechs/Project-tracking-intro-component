@@ -1,0 +1,277 @@
+/* Colors */
+:root {
+  --primary-red: hsl(0, 100%, 68%);
+  --very-dark-blue: hsl(230, 29%, 20%);
+  --dark-grayish-blue: hsl(230, 11%, 40%);
+  --grayish-blue: hsl(231, 7%, 65%);
+  --light-grayish-blue: hsl(207, 33%, 95%);
+}
+
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: white;
+  color: var(--very-dark-blue);
+  font-size: 18px;
+  font-family: "Barlow", sans-serif;
+  font-weight: 400;
+  overflow-x: hidden;
+}
+
+body::after {
+  background-color: var(--light-grayish-blue);
+  border-bottom-left-radius: 100px;
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50vw;
+  height: 50vh;
+  z-index: -1;
+}
+
+/* Reusable components */
+.container {
+  width: 1440px;
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.container > div {
+  flex: 1;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+}
+
+img {
+  max-width: 100%;
+}
+
+.btn {
+  background-color: var(--primary-red);
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 6px;
+  margin-right: 30px;
+  letter-spacing: 2px;
+  font-size: 1.1em;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+}
+
+.btn:focus {
+  outline: none;
+}
+
+/* Navigation Style */
+nav {
+  margin: 40px 0;
+}
+
+#hamburger {
+  display: none;
+}
+
+ul {
+  display: flex;
+  list-style-type: none;
+}
+
+ul li {
+  margin-left: 40px;
+}
+
+ul li.login {
+  margin-left: 80px;
+  position: relative;
+}
+
+ul li.login::before {
+  border-radius: 50%;
+  background-color: var(--grayish-blue);
+  opacity: 0.5;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(-40px, -50%);
+  height: 7px;
+  width: 7px;
+}
+
+ul li a {
+  color: var(--very-dark-blue);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+ul li.login a {
+  color: var(--grayish-blue);
+}
+
+.login a:hover {
+  color: var(--primary-red);
+}
+
+a:hover {
+  color: var(--primary-red);
+}
+
+/* Main section style */
+
+main {
+  margin-top: 12%;
+  display: flex;
+  align-items: center;
+}
+
+h1,
+h3,
+button,
+nav a {
+  font-family: "Barlow Condensed", sans-serif;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 3.5em;
+  margin: 20px 0;
+}
+
+h3 {
+  color: var(--grayish-blue);
+  font-weight: 400;
+  letter-spacing: 4px;
+}
+
+h3 span {
+  background-color: var(--very-dark-blue);
+  color: white;
+  font-weight: 700;
+  padding: 3px 12px;
+  border-radius: 50px;
+  margin-right: 20px;
+}
+
+p {
+  color: var(--dark-grayish-blue);
+}
+
+#illustration {
+  transform: scale(1.5) translateX(25%);
+}
+
+/* Mobile responsive */
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 1rem;
+  }
+  .reverse-mobile {
+    flex-direction: column-reverse;
+  }
+
+  #hamburger {
+    display: block;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+  }
+
+  #hamburger:focus {
+    outline: none;
+  }
+
+  .icon-close {
+    display: none;
+  }
+
+  .show-nav .icon-close {
+    display: block;
+  }
+
+  .show-nav .icon-hamburger {
+    display: none;
+  }
+
+  ul {
+    background-color: white;
+    box-shadow: 0 5px 10px rgba(0, 0, 0.1);
+    flex-direction: column;
+    position: fixed;
+    top: 80px;
+    left: 20px;
+    width: calc(100% - 40px);
+    z-index: 100;
+    visibility: hidden;
+  }
+
+  .show-nav ul {
+    visibility: visible;
+  }
+
+  ul li {
+    margin: 20px 30px;
+    text-align: center;
+  }
+
+  ul li.login {
+    margin: 40px 30px 20px;
+  }
+
+  ul li.login::before {
+    border-radius: 0;
+    top: 0;
+    left: 0;
+    transform: translate(0, -25px);
+    height: 1px;
+    width: 100%;
+  }
+
+  ul li a {
+    font-size: 1.5em;
+  }
+
+  main {
+    margin-top: 0;
+  }
+
+  #illustration {
+    transform: scale(1);
+    margin-bottom: 100px;
+  }
+
+  h1 {
+    font-size: 3em;
+  }
+
+  .btn:hover {
+    transform: scale(1);
+  }
+
+  .btn:focus {
+    outline: outset;
+  }
+
+  .flex {
+    margin: 50px 0;
+  }
+}
